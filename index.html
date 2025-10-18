@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNS 查询服务</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" fill="currentColor">p/
+                    <path d="M4.26,12A8.243,8.243,0,0,1,4,10a8.243,8.243,0,0,1,.26-2H7.64a16.513,16.513,0,0,0-.14,2,16.514,16.514,0,0,0,.14,2H9.66a14.71,14.71,0,0,1-.16-2,14.581,14.581,0,0,1,.16-2h4.68a14.591,14.591,0,0,1,.16,2,14.72,14.72,0,0,1-.16,2H16.36a16.512,16.512,0,0,0,.14-2,16.511,16.511,0,0,0-.14-2h3.38A8.24,8.24,0,0,1,20,10a8.24,8.24,0,0,1-.26,2h2.059A10,10,0,1,0,2.201,12ZM18.92,6H15.97a15.651,15.651,0,0,0-1.38-3.56A8.03,8.03,0,0,1,18.92,6ZM12,2.04A14.086,14.086,0,0,1,13.91,6H10.09A14.086,14.086,0,0,1,12,2.04Zm-2.59.4A15.648,15.648,0,0,0,8.03,6H5.08A7.987,7.987,0,0,1,9.41,2.44Z"/>
+                    <path d="M20.998,14H3.002A2.002,2.002,0,0,0,1,16.002v5.996A2.002,2.002,0,0,0,3.002,24H20.998A2.002,2.002,0,0,0,23,21.998V16.002A2.002,2.002,0,0,0,20.998,14ZM8,20.5A1.473,1.473,0,0,1,6.5,22H3V16H6.5A1.473,1.473,0,0,1,8,17.5ZM14.5,22H13.3l-2.55-3.5V22H9.5V16h1.25l2.5,3.5V16H14.5ZM21,17.52H17.5V18.26H20a1,1,0,0,1,1,1V21a1,1,0,0,1-1,1H16V20.5h3.51v-.74H17a1,1,0,0,1-1-1V17a1,1,0,0,1,1-1h4Z"/>
+                    <rect x="4.5" y="17.5" width="2" height="3"/>
+                    </svg>
+            </div>
+            <h1>DNS 查询服务</h1>
+            <p>通过安全的 DoH (DNS-over-HTTPS) 协议查询 DNS 记录。</p>
+        </header>
+
+        <main>
+            <form id="dns-form">
+                <div class="form-group">
+                    <label for="domain">域名:</label>
+                    <input type="text" id="domain" name="domain" required placeholder="例如: example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="type">记录类型:</label>
+                    <input type="text" id="type" name="type" list="type-list" value="A" placeholder="选择或输入记录类型, 如 A, AAAA, MX...">
+                    <datalist id="type-list">
+                        <option value="A">A (IPv4 地址)</option>
+                        <option value="AAAA">AAAA (IPv6 地址)</option>
+                        <option value="MX">MX (邮件交换)</option>
+                        <option value="TXT">TXT (文本记录)</option>
+                        <option value="CNAME">CNAME (别名)</option>
+                        <option value="NS">NS (域名服务器)</option>
+                        <option value="SRV">SRV (服务定位)</option>
+                        <option value="CAA">CAA (证书颁发机构授权)</option>
+                        <option value="PTR">PTR (反向解析)</option>
+                        <option value="ANY">ANY (任意记录)</option>
+                        <option value="HTTPS">HTTPS (HTTPS 服务绑定)</option>
+                        <option value="SVCB">SVCB (服务绑定)</option>
+                        <option value="DS">DS (委托签名者)</option>
+                        <option value="DNSKEY">DNSKEY (DNS 密钥)</option>
+                        <option value="TLSA">TLSA (TLS 关联)</option>
+                    </datalist>
+                </div>
+
+                <button type="submit" id="submit-button">
+                    <span class="button-text">查询</span>
+                    <span class="spinner" style="display: none;"></span>
+                </button>
+            </form>
+
+            <div class="results-container">
+                <h2>查询结果</h2>
+                <div id="results-display">
+                    <p class="placeholder">请输入域名并选择记录类型后点击查询。</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>由 Vercel 提供支持。</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
