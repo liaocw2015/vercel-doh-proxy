@@ -2,7 +2,7 @@
   "version": 2,
   "rewrites": [
     {
-      "source": "/echZdyl*yyDoHzdy/(:path*.*)",
+      "source": "/echZdyl*yyDoHzdy/:path*.*",
       "destination": "/api/doh"
     }
   ],
@@ -17,7 +17,7 @@
       ]
     },
     {
-      "source": "/echZdyl*yyDoHzdy/(:path*.*)",
+      "source": "/echZdyl*yyDoHzdy/:path*.*",
       "headers": [
         {
           "key": "Cache-Control",
