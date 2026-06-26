@@ -79,8 +79,6 @@
     -   **`FORCE_RESPONSE_PADDING`**: 是否强制对 `dns-message` 响应进行填充。设为 `true` 开启。默认为 `false`。
     -   **`DEBUG_LOGGING`**: 是否在 Vercel 的函数日志中输出详细的调试信息。设为 `true` 开启。默认为 `false`。
 
-4.  **(可选) 修改默认端点**:
-    -   通过修改 `vercel.json` 中的重写规则以修改默认的 DoH 端点，防止来自爬虫的主动探测。
 
 ## 🤝 贡献
 
